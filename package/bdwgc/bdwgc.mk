@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-BDWGC_VERSION = 8.0.4
+BDWGC_VERSION = 8.0.6
 BDWGC_SOURCE = gc-$(BDWGC_VERSION).tar.gz
-BDWGC_SITE = http://www.hboehm.info/gc/gc_source
+BDWGC_SITE = https://github.com/ivmai/bdwgc/releases/download/v$(BDWGC_VERSION)
 BDWGC_INSTALL_STAGING = YES
 BDWGC_LICENSE = bdwgc license
 BDWGC_LICENSE_FILES = README.QUICK
@@ -28,8 +28,6 @@ HOST_BDWGC_CONF_OPTS = --with-libatomic-ops=yes
 
 ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
 BDWGC_CONF_OPTS += --enable-cplusplus
-else
-BDWGC_CONF_OPTS += --disable-cplusplus
 endif
 
 $(eval $(autotools-package))
